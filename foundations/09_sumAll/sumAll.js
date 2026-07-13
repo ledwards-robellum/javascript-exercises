@@ -10,7 +10,11 @@ const sumAll = function(...arr) {
     let sum = 0;
 
     for (let i = sortedArr[0]; i <= sortedArr[1]; i++) {
-        newArr = newArr.concat([i]);
+        if (i > 0) {
+            newArr = newArr.concat([i]);
+        } else if (i < 0) {
+            return 'ERROR'
+        }
     }
     return sum = newArr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 };
