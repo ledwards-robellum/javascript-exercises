@@ -1,24 +1,18 @@
-function compareNumeric(a, b) {
-    if (a > b) return 1;
-    if (a == b) return 0;
-    if (a < b) return -1;
+const sumAll = function(min, max) {
+  if (!Number.isInteger(min) || !Number.isInteger(max)) return 'ERROR';
+  if (min < 0 || max < 0) return "ERROR";
+  if (min > max) {
+    const temp = min;
+    min = max;
+    max = temp;
+  }
+
+  let sum = 0;
+  for (let i = min; i <= max; i++) {
+    sum += i;
+  }
+  return sum;
 }
 
-const sumAll = function(...arr) {
-    let sortedArr = arr.sort(compareNumeric);
-    let newArr = [];
-    let sum = 0;
-
-    for (let i = sortedArr[0]; i <= sortedArr[1]; i++) {
-        if (i > 0) {
-            newArr = newArr.concat([i]);
-        } else if (i < 0) {
-            return 'ERROR'
-        }
-    }
-    return sum = newArr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-};
-
-sumAll(1,4);
 // Do not edit below this line
 module.exports = sumAll;
